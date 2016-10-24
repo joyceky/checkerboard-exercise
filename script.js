@@ -4,7 +4,7 @@ $( document ).ready(function() {
   createContainer();
   // buildCheckerboard();
   // buildMulticolorBoard();
-  buildFlashingBoard();
+  buildFlashyBoard();
 });
 
 function createContainer(){
@@ -45,6 +45,8 @@ function buildCheckerboard() {
 function buildMulticolorBoard() {
   var container = $("#container");
 
+  container.empty();
+
   var multiSquare = {
       "width": "11.1%",
       "float": "left",
@@ -66,4 +68,17 @@ function buildMulticolorBoard() {
 
 function buildGradientBoard() {
 
+}
+
+
+/**************************************************************************/
+
+function buildFlashyBoard() {
+  buildMulticolorBoard();
+
+  var container = $("#container");
+
+  setInterval(function(){
+    container.html(buildMulticolorBoard());
+  } ,2000);
 }
